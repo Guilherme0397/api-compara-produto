@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.hackerrank.sample.HttpJsonDynamicUnitTest" time="0,092000" tests="2" errors="0" skipped="0" failures="2">
+    <testcase name="Get all models" classname="com.hackerrank.sample.HttpJsonDynamicUnitTest" time="0,088000">
+        <failure>
+            Step: DELETE /erase
+            Reason: Status code
+            Expected: 200
+            Found: 404
+        </failure>
+    </testcase>
+    <testcase name="Delete model by id" classname="com.hackerrank.sample.HttpJsonDynamicUnitTest" time="0,004000">
+        <failure>
+            Step: DELETE /erase
+            Reason: Status code
+            Expected: 200
+            Found: 404
+        </failure>
+    </testcase>
+</testsuite>

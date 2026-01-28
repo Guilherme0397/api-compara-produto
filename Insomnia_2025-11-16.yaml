@@ -1,0 +1,402 @@
+type: collection.insomnia.rest/5.0
+name: API Comparação de Produtos
+meta:
+  id: wrk_7823a69492774b41962232143c75f2cf
+  created: 1763180791056
+  modified: 1763180791056
+  description: ""
+collection:
+  - name: Endpoints de Produtos
+    meta:
+      id: fld_c8e41a7faf7b43c4afa7657802d4d9c3
+      created: 1763180791060
+      modified: 1763180791060
+      sortKey: 0
+      description: Endpoints para gerenciar e comparar produtos
+    children:
+      - url: "{{base_url}}/produtos"
+        name: POST Criar Produto
+        meta:
+          id: req_0bd566be74d548c7a667ddd8d3b10be9
+          created: 1699999999000
+          modified: 1763237586085
+          isPrivate: false
+          description: ""
+          sortKey: -1699999996000
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Samsung A1",
+            	"urlImagem": "http://example.com/image.png",
+            	"descricao": "Celular de entrada",
+            	"preco": 899.99,
+            	"classificacao": 3.0,
+            	"categoria": {
+            		"idCategoria": "8d0dce8f-dd15-4f03-b24f-527dafc4f6bf",
+            		"nome": "Celular"
+            	},
+            	"especificacoes": [
+            		{
+            			"nomeAtributo": "RAM",
+            			"valorAtributo": "8GB"
+            		},
+            		{
+            			"nomeAtributo": "COR",
+            			"valorAtributo": "Vermelho"
+            		}
+            	]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{base_url}}/produtos/99f7ac93-58ba-435e-b913-a08f27aab27f"
+        name: GET Detalhe Produto (UUID)
+        meta:
+          id: req_2df14cad45204d98bd3414d200a3096a
+          created: 1699999999000
+          modified: 1763222035032
+          isPrivate: false
+          description: ""
+          sortKey: -1699999998000
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{base_url}}/produtos"
+        name: GET Listar/Paginacao/Filtro
+        meta:
+          id: req_30a5a9e2c7c440d994c8073b188d83a3
+          created: 1699999999000
+          modified: 1763237146903
+          isPrivate: false
+          description: ""
+          sortKey: -1699999999000
+        method: GET
+        parameters:
+          - id: param_page
+            name: page
+            value: "0"
+            disabled: true
+          - id: param_size
+            name: size
+            value: "10"
+            disabled: true
+          - id: param_nome
+            name: nome
+            value: Samsung
+            disabled: true
+          - id: pair_8d4912d4920f4a86918b1314c1979971
+            name: precoMaximo
+            value: "5500"
+            description: ""
+            disabled: true
+          - id: pair_d41dc1d0e8d644e1a5474ee9083a8f94
+            name: especificacoes.nomeAtributo
+            value: Memoria
+            description: ""
+            disabled: false
+          - id: pair_134ae4c9e5664876867139bc90b0eee0
+            name: especificacoes.valorAtributo
+            value: Vermelho
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{base_url}}/produtos/comparar?ids=9df16c5d-997c-409c-adcf-4c45b6d1fdeb&i\
+          ds=06defd4d-5ec8-4405-8dcd-a47de8281c5d"
+        name: GET Comparar Produtos (Lista UUIDs)
+        meta:
+          id: req_4c16e784aa8345f8891a8826998741ca
+          created: 1699999999000
+          modified: 1763219061849
+          isPrivate: false
+          description: ""
+          sortKey: -1699999997000
+        method: GET
+        parameters:
+          - id: pair_617f97f2e07c4de49612790079377355
+            name: ""
+            value: ""
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{base_url}}/produtos/99f7ac93-58ba-435e-b913-a08f27aab27f"
+        name: DELETE Deletar Produto
+        meta:
+          id: req_7c8fcb0fc90646529afd92e18811e5b4
+          created: 1699999999000
+          modified: 1763235650100
+          isPrivate: false
+          description: ""
+          sortKey: -1699999994000
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{base_url}}/produtos/"
+        name: PUT Atualizar Produto
+        meta:
+          id: req_ccd97b92c5944be99e8966f18064174a
+          created: 1699999999000
+          modified: 1763309415043
+          isPrivate: false
+          description: ""
+          sortKey: -1699999995000
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "nome": "Smartphone Exemplo ATUALIZADO",
+              "urlImagem": "http://example.com/image.png",
+              "descricao": "Descrição detalhada do produto, agora atualizada.",
+              "preco": 699.99, 
+              "classificacao": 4.3,
+              "categoria": {
+                "id": "{{categoria_uuid_existente}}" 
+              },
+              "especificacoes": []
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{base_url}}/produtos/categoria/12794d9f-2d48-4cd7-8ea1-5217e3028c87"
+        name: GET ListarPorCategoria
+        meta:
+          id: req_12edfbc6d5fe4b7099ce46d38ce96f43
+          created: 1763227150419
+          modified: 1763236370073
+          isPrivate: false
+          description: ""
+          sortKey: -1763227150419
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{base_url}}/produtos/categoria/12794d9f-2d48-4cd7-8ea1-5217e3028c87/filt\
+          rar"
+        name: GET Listar Categoria Filtrada
+        meta:
+          id: req_fb1e0cc9884143caaa3f5a4dfdd3137b
+          created: 1763234029439
+          modified: 1763238280047
+          isPrivate: false
+          description: ""
+          sortKey: -1699999998500
+        method: GET
+        parameters:
+          - id: param_page
+            name: page
+            value: "0"
+            disabled: false
+          - id: param_size
+            name: size
+            value: "10"
+            disabled: false
+          - id: param_nome
+            name: nome
+            value: Samsung
+            disabled: true
+          - id: pair_8d4912d4920f4a86918b1314c1979971
+            name: precoMaximo
+            value: "5500"
+            description: ""
+            disabled: true
+          - id: pair_d41dc1d0e8d644e1a5474ee9083a8f94
+            name: nomeAtributo
+            value: COR
+            description: ""
+            disabled: false
+          - id: pair_134ae4c9e5664876867139bc90b0eee0
+            name: valorAtributo
+            value: Vermelho
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Endpoints de Categorias
+    meta:
+      id: fld_8a9c4b70af174531a1fdb8a351f76d76
+      created: 1763180791071
+      modified: 1763180791071
+      sortKey: 1
+      description: Endpoints para gerenciar categorias
+    children:
+      - url: "{{base_url}}/categorias"
+        name: Listar Todas Categorias
+        meta:
+          id: req_023a2b3017aa47a4846f5363e7b29237
+          created: 1763180791072
+          modified: 1763234325061
+          isPrivate: false
+          description: ""
+          sortKey: -1763180791072
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{base_url}}/categorias/509f9ece-81a7-4722-99b9-40fbb232f313"
+        name: Buscar Categoria por ID
+        meta:
+          id: req_740b7e92f90048598aafde6949cb648e
+          created: 1763180791073
+          modified: 1763226318137
+          isPrivate: false
+          description: ""
+          sortKey: -1763180791073
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{base_url}}/categorias"
+        name: Criar Categoria
+        meta:
+          id: req_9e28b561e6144fc8bc085793f9cea4a9
+          created: 1763180791074
+          modified: 1763237521881
+          isPrivate: false
+          description: ""
+          sortKey: -1763180791074
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "nome": "Celular"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{base_url}}/categorias/"
+        name: Atualizar Categoria
+        meta:
+          id: req_5551f8e0361243358b89cf5929ecab3d
+          created: 1763180791075
+          modified: 1763309433164
+          isPrivate: false
+          description: ""
+          sortKey: -1763180791075
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "nome": "Categoria Atualizada"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{base_url}}/categorias/"
+        name: Deletar Categoria
+        meta:
+          id: req_8c14520897204989aee53d4c678358f0
+          created: 1763180791077
+          modified: 1763309426467
+          isPrivate: false
+          description: ""
+          sortKey: -1763180791077
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_b741322e1cb965b86b4805bb7b889f06f3562eeb
+    created: 1763180791083
+    modified: 1763180791083
+environments:
+  name: Base Environment
+  meta:
+    id: env_f72ebd9838c94df1bb57199d2424927e
+    created: 1763180791058
+    modified: 1763181475171
+    isPrivate: false
+  data:
+    base_url: http://localhost:8082/comparison
